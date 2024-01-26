@@ -9,7 +9,7 @@
 
 - Login Form(SignUp and SignIn Forms)
 
-- Form Validation
+- Form Validation(In form onSubmit = {(e) => e.preventDefault()} used to prevent default submission)
 
 - UseRef
 
@@ -17,7 +17,14 @@
 
 - Deploying app to production(We can change url name by purchasing domain and add it in build hosting section in firebase)
 
-- Authentication (using FireBase)
+- Authentication - SignIn and SignUp user apis createUserWithEmailAndPassword,signInWithEmailAndPassword (using FireBase)
+
+- Created Redux Store with userSlice
+
+- Implemented SignOut
+
+- Update Profile(dipslay name and photo url)
+
 
 # Features
 Go to netflix.com

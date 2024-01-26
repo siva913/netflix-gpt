@@ -7,7 +7,11 @@
 
 - Header which consits of Netflix Logo(learn about background gradient, z-index)
 
-- Login Form
+- Login Form(SignUp and SignIn Forms)
+
+- Form Validation
+
+- UseRef
 
 # Features
 Go to netflix.com

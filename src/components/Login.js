@@ -1,6 +1,8 @@
 import { useState, useRef } from "react";
 import Header from "./Header";
 import { checkValidData } from "../utils/validate";
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
+import { auth } from "../utils/firebase";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true); // To toggle the form to signin and signup 
@@ -15,8 +17,36 @@ const Login = () => {
 
   const handleButtonClick = () => {
     // Validate the form Data
-    const message = checkValidData(name.current.value, email.current.value, password.current.value);
+    const message = checkValidData(name.current?.value, email.current?.value, password.current?.value);
     setErrorMessage(message);
+
+    if(message) return; // Then there is a validation error so dont execute the below code 
+
+    //SignIn and Signup Logic
+    if(!isSignInForm) { // For SignUp logic
+      createUserWithEmailAndPassword(auth, email.current?.value, password.current?.value)
+        .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setErrorMessage(errorCode + '-' + errorMessage);
+      });
+  } 
+  else { // For SignIn logic
+    signInWithEmailAndPassword(auth, email.current?.value, password.current?.value)
+      .then((userCredential) => {
+      const user = userCredential.user;
+      console.log(user);
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      setErrorMessage(errorCode + '-' + errorMessage);
+    });
+    }
   }
   return (
     <div>
@@ -34,7 +64,7 @@ const Login = () => {
 
         {!isSignInForm && (
           <input
-            ref={name}
+            ref={name} // to get the reference of this input element
             type="text"
             placeholder="Full Name"
             className="p-4 my-4 w-full bg-gray-700"

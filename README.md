@@ -13,6 +13,12 @@
 
 - UseRef
 
+- Firebase Setup
+
+- Deploying app to production(We can change url name by purchasing domain and add it in build hosting section in firebase)
+
+- Authentication (using FireBase)
+
 # Features
 Go to netflix.com
 

@@ -3,6 +3,12 @@
 
 - Configured Tailwing CSS in the app https://tailwindcss.com/docs/guides/create-react-app
 
+- reat-route-dom used for routing
+
+- Header which consits of Netflix Logo(learn about background gradient, z-index)
+
+- Login Form
+
 # Features
 Go to netflix.com
 

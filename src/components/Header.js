@@ -50,9 +50,9 @@ const Header = () => {
       src={netflixLogo}
       alt="netflixLogo" />
       {user && <div className='flex p-2' >
-        <img  
+        {/* <img  
         className='w-12 h-12 cursor-pointer'
-        src={user?.photoURL} alt="usericon" />
+        src={user?.photoURL} alt="usericon" /> */}
         <button onClick={handleSignOut} className='font-bold text-white'> Sign Out </button>
       </div>}
     </div>

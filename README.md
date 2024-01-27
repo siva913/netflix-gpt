@@ -5,7 +5,7 @@
 
 - reat-route-dom used for routing
 
-- Header which consits of Netflix Logo(learn about background gradient, z-index, aspect ratio, opacity, hover)
+- Header which consits of Netflix Logo(learn about background gradient, z-index, aspect ratio, opacity, hover, overflow-x-scroll)
 
 - Login Form(SignUp and SignIn Forms)
 
@@ -47,11 +47,15 @@
     - VideoTitle
   SecondaryContainer
     - MoviesList * n 
-    - cards * n 
+    - Moviecards * n 
 
 - Fetch Movie Videos and filter trailer video and store it in redux store
 
-- Embedded youtube video and make it autoplay and mute (add this in src of iframe ?&autoplay=1&mute=1)
+- Implemented MainContainer Embedded youtube video and make it autoplay and mute (add this in src of iframe ?&autoplay=1&mute=1)
+
+- Implemented Secondary Container with MovieList, MovieCards
+
+- Implemented Custom Hooks for different types of movies
 
 
 # Features

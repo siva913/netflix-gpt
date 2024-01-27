@@ -5,7 +5,7 @@
 
 - reat-route-dom used for routing
 
-- Header which consits of Netflix Logo(learn about background gradient, z-index)
+- Header which consits of Netflix Logo(learn about background gradient, z-index, aspect ratio, opacity, hover)
 
 - Login Form(SignUp and SignIn Forms)
 
@@ -32,6 +32,26 @@
 - Unsubscribed onAuthstateChanged callback
 
 - Dont use any hardcoded values like strings directly in app , declare them as constants 
+
+- Register in  TMDB API & create an app to get access token 
+
+- Get Data from TMDB now playing movies list API
+
+- Created custom hook for now playing movies list
+
+- Created movieSlice and updated store with movies data
+
+- Inside Browse Page
+  MainContainer
+    - VideoBackground
+    - VideoTitle
+  SecondaryContainer
+    - MoviesList * n 
+    - cards * n 
+
+- Fetch Movie Videos and filter trailer video and store it in redux store
+
+- Embedded youtube video and make it autoplay and mute (add this in src of iframe ?&autoplay=1&mute=1)
 
 
 # Features

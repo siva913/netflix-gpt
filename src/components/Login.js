@@ -6,6 +6,7 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../utils/userSlice";
 import { useDispatch } from "react-redux";
+import { backgroundLogo, defaultPhotoUrl } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true); // To toggle the form to signin and signup 
@@ -13,7 +14,6 @@ const Login = () => {
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const toggleSignInForm = () => {
@@ -32,16 +32,17 @@ const Login = () => {
       createUserWithEmailAndPassword(auth, email.current?.value, password.current?.value)
         .then((userCredential) => {
         const user = userCredential.user;
-        // To Update display name and photo and then navigate to Browse page
+        // To Update display name and photoUrl
         updateProfile(user, {
-          displayName: name.current.value, photoURL: "https://avatars.githubusercontent.com/u/103826375?v=4"
+          displayName: name.current.value, photoURL: defaultPhotoUrl
         }).then(() => {
           // Again call the action to store displayName, photoURL as uid,email,password will be stored in store using onAuthChange in Body.js 
           const {uid, email, displayName, photoURL} = auth.currentUser;
           dispatch(addUser({uid: uid, email: email, displayName: displayName, photoURL: photoURL}));
-          navigate('/browse');
         }).catch((error) => {
-          navigate('/ErrorPage')
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setErrorMessage(errorCode + '-' + errorMessage);
         });
       })
       .catch((error) => {
@@ -54,7 +55,6 @@ const Login = () => {
     signInWithEmailAndPassword(auth, email.current?.value, password.current?.value)
       .then((userCredential) => {
       const user = userCredential.user;
-      navigate('/browse');
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -70,8 +70,8 @@ const Login = () => {
       <Header />
       <div className="absolute">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/fc164b4b-f085-44ee-bb7f-ec7df8539eff/d23a1608-7d90-4da1-93d6-bae2fe60a69b/IN-en-20230814-popsignuptwoweeks-perspective_alpha_website_large.jpg"
-          alt="logo"
+          src={backgroundLogo}
+          alt="bg-logo"
         />
       </div>
       <form onSubmit = {(e) => e.preventDefault()} className="w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80">

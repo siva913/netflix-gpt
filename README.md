@@ -25,6 +25,14 @@
 
 - Update Profile(dipslay name and photo url)
 
+- Bug Fix : SignUp user displayname and photo url
+
+- Bug Fix : If user is not signed in if user enters /browse then redirect it to /login and viceversa
+
+- Unsubscribed onAuthstateChanged callback
+
+- Dont use any hardcoded values like strings directly in app , declare them as constants 
+
 
 # Features
 Go to netflix.com

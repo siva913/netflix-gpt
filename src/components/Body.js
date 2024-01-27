@@ -1,14 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Login from './Login';
 import Browse from './Browse';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../utils/firebase';
-import { useDispatch } from 'react-redux';
-import { addUser, removeUser } from '../utils/userSlice';
 
 const Body = () => {
-    const dispatch = useDispatch();
+    //As we defined router in Body we can use navigate to navigate to  different routes only inside Login, Browse and their child components like header  and not in Body or App components.
     const appRouter = createBrowserRouter([
         {
             path: '/',
@@ -19,22 +15,7 @@ const Body = () => {
             element: <Browse/>
         }
     ]);
-    // To store the userdata globally so that we can access anywhere in app
-    useEffect(() =>{
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                // When user SignIn/SignUp
-                const {uid, email, displayName, photoURL} = user;
-                //action to add the user data to store 
-                dispatch(addUser({uid: uid, email: email, displayName: displayName, photoURL: photoURL}));
-            } else {
-                //when user Signs out
-                //action to remove user data from store 
-                dispatch(removeUser());
-            }
-        });
 
-    },[]);
 
   return (
     <div>

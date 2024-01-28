@@ -57,6 +57,12 @@
 
 - Implemented Custom Hooks for different types of movies
 
+- GPT Search Page
+
+- GPT Search Bar
+
+- Implemented Multilingual(4 languages) support for GPT Search bar
+
 
 # Features
 Go to netflix.com

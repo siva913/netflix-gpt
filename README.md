@@ -63,6 +63,17 @@
 
 - Implemented Multilingual(4 languages) support for GPT Search bar
 
+- Implemented Search functionality by calling openai api to get movie names based on search
+
+- Implemented Movie Suggestions Lists and Cards by calling IMDB search api for the search results movie names
+
+- Secure Storage of keys
+  Create a .env file like tailwind.config.js and store the keys using REACT_APP_OPENAI_KEY=keyvalue
+  Then in constants file instead of key value use process.env.REACT_APP_OPENAI_KEY
+  Include .env in gitignore file
+
+- Added Memoization for movies API calls
+
 
 # Features
 Go to netflix.com
